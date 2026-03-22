@@ -275,10 +275,10 @@ Contributions are welcome! Here's how to get started:
 git clone https://github.com/divejikan-yuvarajah/thinky-extension.git
 
 # 2. Load in Chrome (no build step needed — pure JS)
-# chrome://extensions → Developer Mode → Load Unpacked
+chrome://extensions → Developer Mode → Load Unpacked
 
 # 3. Make your changes and reload the extension
-# chrome://extensions → click the refresh icon on Thinky
+chrome://extensions → click the refresh icon on Thinky
 ```
 
 Please open an issue first for major changes.
