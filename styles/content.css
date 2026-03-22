@@ -1,0 +1,108 @@
+/* ============================================================
+   Thinky v2 — Floating button & quick menu
+   ============================================================ */
+
+@import url('https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600&display=swap');
+
+@keyframes thinkyFadeUp {
+  from { opacity:0; transform:translateY(8px) scale(0.94); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+
+@keyframes thinkyMenuIn {
+  from { opacity:0; transform:translateY(6px) scale(0.96); }
+  to   { opacity:1; transform:translateY(0) scale(1); }
+}
+
+/* ── Floating pill ── */
+#__thinky_float__ {
+  animation: thinkyFadeUp 0.2s cubic-bezier(0.34,1.56,0.64,1);
+  cursor: pointer;
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.thinky-pill {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 14px 7px 10px;
+  background: linear-gradient(135deg, #F54927 0%, #C93A1A 100%);
+  color: #fff;
+  border-radius: 24px;
+  font-size: 13px;
+  font-weight: 600;
+  cursor: pointer;
+  box-shadow: 0 4px 20px rgba(245,73,39,0.55), 0 1px 6px rgba(0,0,0,0.15);
+  white-space: nowrap;
+  user-select: none;
+  transition: transform 0.18s ease, box-shadow 0.18s ease;
+  letter-spacing: 0.01em;
+}
+
+#__thinky_float__:hover .thinky-pill {
+  transform: translateY(-1px) scale(1.03);
+  box-shadow: 0 8px 28px rgba(245,73,39,0.65), 0 2px 8px rgba(0,0,0,0.2);
+}
+
+/* ── Quick menu container ── */
+#__thinky_menu__ {
+  animation: thinkyMenuIn 0.18s cubic-bezier(0.34,1.2,0.64,1);
+  font-family: 'DM Sans', system-ui, sans-serif;
+}
+
+.thinky-menu-inner {
+  background: #0F172A;
+  border: 1px solid rgba(245,73,39,0.2);
+  border-radius: 14px;
+  padding: 6px;
+  box-shadow: 0 12px 40px rgba(0,0,0,0.6), 0 2px 10px rgba(0,0,0,0.3), inset 0 1px 0 rgba(255,255,255,0.05);
+  min-width: 190px;
+  backdrop-filter: blur(16px);
+}
+
+.thinky-menu-header {
+  padding: 7px 10px 8px;
+  font-size: 11px;
+  color: #6B7280;
+  border-bottom: 1px solid rgba(255,255,255,0.06);
+  margin-bottom: 4px;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  white-space: nowrap;
+  max-width: 180px;
+  font-style: italic;
+}
+
+.thinky-menu-item {
+  display: flex !important;
+  align-items: center !important;
+  gap: 9px !important;
+  width: 100% !important;
+  padding: 9px 10px !important;
+  background: none !important;
+  border: none !important;
+  border-radius: 9px !important;
+  color: #D1D5DB !important;
+  font-size: 13px !important;
+  font-weight: 500 !important;
+  cursor: pointer !important;
+  text-align: left !important;
+  transition: background 0.13s, color 0.13s !important;
+  font-family: 'DM Sans', system-ui, sans-serif !important;
+  letter-spacing: 0.01em !important;
+}
+
+.thinky-menu-item:hover {
+  background: rgba(245,73,39,0.15) !important;
+  color: #A5B4FC !important;
+}
+
+.thinky-menu-icon {
+  display: flex;
+  align-items: center;
+  opacity: 0.7;
+}
+
+.thinky-menu-item:hover .thinky-menu-icon {
+  opacity: 1;
+}

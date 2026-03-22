@@ -1,0 +1,226 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8"/>
+  <meta name="viewport" content="width=device-width,initial-scale=1.0"/>
+  <title>Thinky Settings</title>
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:wght@400;500;600;700&family=Sora:wght@600;700&display=swap" rel="stylesheet"/>
+  <link rel="stylesheet" href="settings.css"/>
+</head>
+<body>
+<div id="app">
+  <div class="container">
+
+    <!-- ── Page Header ── -->
+    <div class="page-header">
+      <div class="brand">
+        <div class="brand-icon">
+          <svg width="22" height="22" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+            <path d="M12 2C6.477 2 2 6.477 2 12c0 1.89.525 3.66 1.438 5.168L2 22l4.832-1.438A9.959 9.959 0 0012 22c5.523 0 10-4.477 10-10S17.523 2 12 2z"/>
+          </svg>
+        </div>
+        <div>
+          <div class="brand-name">Thinky Settings</div>
+          <div class="brand-sub">Smart AI Study Assistant v1.0</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- ── Toast ── -->
+    <div id="toast" class="toast hidden"></div>
+
+    <!-- ── API Key ── -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background: rgba(219,56,24,0.1); color: #DB3818;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 2l-2 2m-7.61 7.61a5.5 5.5 0 11-7.778 7.778 5.5 5.5 0 017.777-7.777zm0 0L15.5 7.5m0 0l3 3L22 7l-3-3m-3.5 3.5L19 4"/></svg>
+        </div>
+        <div>
+          <h2>OpenRouter API Key</h2>
+          <p class="card-desc">Free key — no credit card needed</p>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="or-key">
+          API Key
+          <a href="https://openrouter.ai/keys" target="_blank" class="link-badge">Get free key →</a>
+        </label>
+        <div class="input-wrap">
+          <input type="password" id="or-key" placeholder="sk-or-v1-…" autocomplete="off"/>
+          <button class="eye-btn" data-for="or-key">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <p class="hint">Sign up free at <strong>openrouter.ai</strong> → Keys → Create Key. Keys start with <code>sk-or-</code></p>
+      </div>
+
+      <div id="or-status" class="key-status hidden"></div>
+      <div class="btn-row">
+        <button class="btn-outline" id="or-validate">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Validate Key
+        </button>
+        <button class="btn-primary" id="or-save">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Key
+        </button>
+      </div>
+
+      <div class="divider-line"><span>or use as backup / alternative</span></div>
+
+      <!-- Google AI Studio Key -->
+      <div class="field">
+        <label for="gem-key">
+          Google AI Studio Key
+          <a href="https://aistudio.google.com/apikey" target="_blank" class="link-badge">Get free key →</a>
+        </label>
+        <div class="input-wrap">
+          <input type="password" id="gem-key" placeholder="AIzaSy…" autocomplete="off"/>
+          <button class="eye-btn" data-for="gem-key">
+            <svg width="15" height="15" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/></svg>
+          </button>
+        </div>
+        <p class="hint">Free forever on Gemini 2.0 Flash. Auto-used when OpenRouter key fails or is missing. Keys start with <code>AIza</code></p>
+      </div>
+
+      <div id="gem-status" class="key-status hidden"></div>
+      <div class="btn-row">
+        <button class="btn-outline" id="gem-validate">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="11" cy="11" r="8"/><line x1="21" y1="21" x2="16.65" y2="16.65"/></svg>
+          Validate Key
+        </button>
+        <button class="btn-primary" id="gem-save">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M19 21H5a2 2 0 01-2-2V5a2 2 0 012-2h11l5 5v11a2 2 0 01-2 2z"/><polyline points="17 21 17 13 7 13 7 21"/><polyline points="7 3 7 8 15 8"/></svg>
+          Save Key
+        </button>
+      </div>
+    </section>
+
+    <!-- ── Model Info ── -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background: rgba(34,197,94,0.1); color: #22C55E;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><rect x="2" y="3" width="20" height="14" rx="2"/><line x1="8" y1="21" x2="16" y2="21"/><line x1="12" y1="17" x2="12" y2="21"/></svg>
+        </div>
+        <div>
+          <h2>AI Model</h2>
+          <p class="card-desc">Powered by Qwen3 80B — completely free</p>
+        </div>
+      </div>
+
+      <div class="model-info-box">
+        <div class="model-name">
+          <span class="badge gen">PRIMARY</span>
+          OpenRouter Free Router — auto-picks best available model
+        </div>
+        <p class="hint" style="margin-top: 4px;">Uses <code>openrouter/free</code> — rotates across Llama 3.3 70B, Qwen3 80B, Mistral Small and more. Never stuck on one model's rate limit.</p>
+      </div>
+      <div class="model-info-box" style="margin-top: 8px;">
+        <div class="model-name">
+          <span class="badge gem">BACKUP</span>
+          Gemini 2.0 Flash — Google AI Studio
+        </div>
+        <p class="hint" style="margin-top: 4px;">Auto-fallback when OpenRouter is busy. Free: <strong>60 req/min · 300K tokens/day</strong>. Much more generous.</p>
+      </div>
+      <p class="hint" style="margin-top: 8px;">💡 Add both keys — OpenRouter handles normal use, Gemini takes over when rate limits hit.</p>
+    </section>
+
+    <!-- ── Appearance ── -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background: rgba(250,204,21,0.1); color: #FACC15;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><circle cx="12" cy="12" r="5"/><line x1="12" y1="1" x2="12" y2="3"/><line x1="12" y1="21" x2="12" y2="23"/><line x1="4.22" y1="4.22" x2="5.64" y2="5.64"/><line x1="18.36" y1="18.36" x2="19.78" y2="19.78"/><line x1="1" y1="12" x2="3" y2="12"/><line x1="21" y1="12" x2="23" y2="12"/><line x1="4.22" y1="19.78" x2="5.64" y2="18.36"/><line x1="18.36" y1="5.64" x2="19.78" y2="4.22"/></svg>
+        </div>
+        <div>
+          <h2>Appearance</h2>
+          <p class="card-desc">Customize the look and feel</p>
+        </div>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <b>Show Floating Button</b>
+          <p class="hint">AI button appears when you highlight text on any page.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="tog-float" checked/>
+          <span class="track"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <b>Dark Mode Sidebar</b>
+          <p class="hint">Enable dark theme for the sidebar (recommended for night study).</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="tog-dark" checked/>
+          <span class="track"></span>
+        </label>
+      </div>
+
+      <div class="toggle-row">
+        <div class="toggle-info">
+          <b>Reading Progress Bar</b>
+          <p class="hint">Show a progress bar at the top of the page as you scroll.</p>
+        </div>
+        <label class="switch">
+          <input type="checkbox" id="tog-progress" checked/>
+          <span class="track"></span>
+        </label>
+      </div>
+    </section>
+
+    <!-- ── Data ── -->
+    <section class="card">
+      <div class="card-header">
+        <div class="card-icon" style="background: rgba(248,113,113,0.1); color: #F87171;">
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><ellipse cx="12" cy="5" rx="9" ry="3"/><path d="M21 12c0 1.66-4 3-9 3s-9-1.34-9-3"/><path d="M3 5v14c0 1.66 4 3 9 3s9-1.34 9-3V5"/></svg>
+        </div>
+        <div>
+          <h2>Data & Privacy</h2>
+          <p class="card-desc">Your data stays in your browser</p>
+        </div>
+      </div>
+
+      <div class="info-box">
+        <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"/></svg>
+        Your API keys and chat history are stored only in your local browser. Nothing is sent to Thinky's servers.
+      </div>
+
+      <div class="btn-row" style="flex-wrap: wrap;">
+        <button class="btn-danger" id="btn-clear">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/></svg>
+          Clear Chat History
+        </button>
+        <button class="btn-outline" id="btn-export">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/></svg>
+          Export History
+        </button>
+        <button class="btn-danger" id="btn-clear-all">
+          <svg width="13" height="13" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="3 6 5 6 21 6"/><path d="M19 6l-1 14a2 2 0 01-2 2H8a2 2 0 01-2-2L5 6"/><path d="M10 11v6M14 11v6"/></svg>
+          Clear All Data
+        </button>
+      </div>
+    </section>
+
+    <button class="save-all" id="save-all">
+      <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2"><polyline points="20 6 9 17 4 12"/></svg>
+      Save All Settings
+    </button>
+
+    <div class="page-footer">
+      <span>Thinky v2.0.0 — Smart AI Study Assistant</span>
+      <div class="footer-links">
+        <a href="https://openrouter.ai/docs" target="_blank">OpenRouter Docs</a>
+        <a href="https://openrouter.ai/models" target="_blank">All Models</a>
+        <a href="https://aistudio.google.com" target="_blank">Google AI Studio</a>
+      </div>
+    </div>
+
+  </div>
+</div>
+<script src="settings.js"></script>
+</body>
+</html>

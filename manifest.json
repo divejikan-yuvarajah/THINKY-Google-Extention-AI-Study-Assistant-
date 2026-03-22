@@ -1,0 +1,56 @@
+{
+  "manifest_version": 3,
+  "name": "Thinky - Smart AI Study Assistant",
+  "version": "2.0.0",
+  "description": "AI-powered study assistant: summarize pages, explain concepts, generate flashcards, bookmark responses, and export study sessions as PDF.",
+  "icons": {
+    "16": "icons/icon16.png",
+    "48": "icons/icon48.png",
+    "128": "icons/icon128.png"
+  },
+  "action": {
+    "default_popup": "popup/popup.html",
+    "default_icon": {
+      "16": "icons/icon16.png",
+      "48": "icons/icon48.png",
+      "128": "icons/icon128.png"
+    },
+    "default_title": "Thinky - AI Study Assistant"
+  },
+  "background": {
+    "service_worker": "background.js"
+  },
+  "content_scripts": [
+    {
+      "matches": ["<all_urls>"],
+      "js": ["content.js"],
+      "css": ["styles/content.css"],
+      "run_at": "document_idle"
+    }
+  ],
+  "permissions": [
+    "activeTab",
+    "contextMenus",
+    "scripting",
+    "storage",
+    "tabs"
+  ],
+  "host_permissions": [
+    "<all_urls>",
+    "https://openrouter.ai/*",
+    "https://generativelanguage.googleapis.com/*"
+  ],
+  "web_accessible_resources": [
+    {
+      "resources": [
+        "sidebar/sidebar.html",
+        "sidebar/sidebar.css",
+        "sidebar/sidebar.js",
+        "icons/*",
+        "styles/*",
+        "utils/*"
+      ],
+      "matches": ["<all_urls>"]
+    }
+  ]
+}
