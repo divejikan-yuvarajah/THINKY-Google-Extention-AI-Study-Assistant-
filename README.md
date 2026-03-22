@@ -99,7 +99,7 @@ One-click chips to analyze the entire page:
 
 > No Chrome Web Store needed — load it directly in 4 steps.
 
-**Step 1 —** Download and unzip `thinky-extension-v2.zip`
+**Step 1 —** Download and unzip `thinky-extension-v1.zip`
 
 **Step 2 —** Open Chrome and go to:
 ```
@@ -272,7 +272,7 @@ Contributions are welcome! Here's how to get started:
 
 ```bash
 # 1. Fork and clone the repo
-git clone https://github.com/yourusername/thinky-extension.git
+git clone https://github.com/divejikan-yuvarajah/thinky-extension.git
 
 # 2. Load in Chrome (no build step needed — pure JS)
 # chrome://extensions → Developer Mode → Load Unpacked
