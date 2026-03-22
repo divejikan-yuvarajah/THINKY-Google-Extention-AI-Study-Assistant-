@@ -4,7 +4,7 @@
 
 ![Thinky Banner](https://img.shields.io/badge/Thinky-Smart%20AI%20Study%20Assistant-DB3818?style=for-the-badge&logo=googlechrome&logoColor=white)
 
-[![Version](https://img.shields.io/badge/Version-2.0.0-22C55E?style=flat-square)](https://github.com/yourusername/thinky-extension/releases)
+[![Version](https://img.shields.io/badge/Version-1.0.0-22C55E?style=flat-square)](https://github.com/yourusername/thinky-extension/releases)
 [![Manifest](https://img.shields.io/badge/Manifest-V3-818CF8?style=flat-square)](https://developer.chrome.com/docs/extensions/mv3/)
 [![License](https://img.shields.io/badge/License-MIT-FACC15?style=flat-square)](LICENSE)
 [![Free](https://img.shields.io/badge/API-100%25%20Free-34D399?style=flat-square)](https://openrouter.ai)
